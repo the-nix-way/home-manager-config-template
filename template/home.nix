@@ -17,4 +17,4 @@ in {
   };
 
   programs = import ./programs.nix;
-};
+}
