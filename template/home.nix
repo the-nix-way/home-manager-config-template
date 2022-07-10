@@ -2,6 +2,8 @@
 
 let
   stateVersion = "22.11";
+
+  packages = import ./packages.nix { inherit pkgs; };
 in {
   home = {
     inherit homeDirectory packages stateVersion username;
