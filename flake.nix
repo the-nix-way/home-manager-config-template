@@ -3,10 +3,12 @@
 
   outputs = { self }: {
     templates = {
-      default = {
-        path = ./template;
+      basic = {
+        path = ./basic;
         description = "Home Manager configuration template";
       };
+
+      default = self.templates.basic;
     };
   };
 }
