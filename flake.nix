@@ -7,6 +7,6 @@
         path = ./template;
         description = "Home Manager configuration template";
       };
-    }
-  }
+    };
+  };
 }
