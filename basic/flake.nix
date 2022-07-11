@@ -11,8 +11,12 @@
 
   outputs = { self, nixpkgs, home-manager }:
     let
-      username = "change-me-plz";
-      system = "aarch64-darwin";
+      # Values you should modify
+      username = "change-me-plz"; # $USER
+      system = "aarch64-darwin";  # x86_64-linux, aarch64-multiplatform, etc.
+      stateVersion = "22.11";     # See https://nixos.org/manual/nixpkgs/stable for most recent
+
+      # Change this is not on macOS
       homeDirectory = "/Users/${username}";
 
       pkgs = import nixpkgs {
@@ -24,7 +28,7 @@
       };
 
       home = (import ./home.nix {
-        inherit homeDirectory pkgs system username;
+        inherit homeDirectory pkgs stateVersion system username;
       });
     in {
       homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration {

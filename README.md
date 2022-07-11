@@ -17,7 +17,11 @@ nix flake new \
 ./my-home-manager-config
 ```
 
-Then, inside the directory with the templated contents, you need to personalize the [`username`][username] and [`system`][system] values, as you may not be using a `aarch64-darwin` system and you probably don't want to keep your username as `change-me-plz`!
+Then, inside the directory with the templated contents, you may need to personalize these values:
+
+- [`username`][username]
+- [`system`][system]
+- [`stateVersion`][state]
 
 Once those values are in place, build and run an activator executable, substituting your provided username for `${USER}`:
 
@@ -35,7 +39,9 @@ reload-home-manager-config
 This is a very simple, baseline config, so feel free to [customize away][options]!
 
 [hm]: https://github.com/nix-community/home-manager
+[home]: ./basic/flake.nix#L20
 [options]: https://nix-community.github.io/home-manager/options.html
-[system]: ./template/flake.nix#L15
+[state]: ./basic/flake.nix#L17
+[system]: ./basic/flake.nix#L16
 [template]: https://github.com/NixOS/templates
-[username]: ./template/flake.nix#L14
+[username]: ./basic/flake.nix#L15
