@@ -16,9 +16,6 @@
       system = "aarch64-darwin";  # x86_64-linux, aarch64-multiplatform, etc.
       stateVersion = "22.11";     # See https://nixos.org/manual/nixpkgs/stable for most recent
 
-      # Change this is not on macOS
-      homeDirectory = "/Users/${username}";
-
       pkgs = import nixpkgs {
         inherit system;
 
@@ -26,6 +23,9 @@
           allowUnfree = true;
         };
       };
+
+      homeDirPrefix = if pkgs.stdenv.hostPlatform.isDarwin then "/Users" else "/home";
+      homeDirectory = "/${homeDirPrefix}/${username}";
 
       home = (import ./home.nix {
         inherit homeDirectory pkgs stateVersion system username;
