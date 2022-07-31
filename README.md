@@ -1,5 +1,7 @@
 # Nix Home Manager configuration template
 
+[![built with nix](https://builtwithnix.org/badge.svg)](https://builtwithnix.org)
+
 This repo provides a Nix [flake template][template] that you can use to create a new [Home Manager][hm] configuration for your environment.
 
 To initialize the template inside an existing project:
